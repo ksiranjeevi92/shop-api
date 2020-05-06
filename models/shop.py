@@ -8,9 +8,6 @@ class ShopModel(db.Model):
     shopname = db.Column(db.String(80))
     status = db.Column(db.Boolean(True))
 
-    def toDict(self):
-        return {c.key: getattr(self, c.key) for c in inspect(self).mapper.column_attrs}
-
     def __init__(self, name, shopname, status):
         self.name = name
         self.shopname = shopname
