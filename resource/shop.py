@@ -15,7 +15,7 @@ _data_parser.add_argument('shopname',
                           help="This field cannot be blank."
                           )
 _data_parser.add_argument('status',
-                          type=bool,
+                          type=str,
                           required=True,
                           help="This field cannot be blank."
                           )
