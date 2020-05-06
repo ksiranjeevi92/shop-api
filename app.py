@@ -1,5 +1,6 @@
 from flask import Flask,  jsonify
 from flask_restful import Api
+from db import db
 
 from resource.shop import ShopCreate
 from resource.shop import Shop
@@ -21,7 +22,6 @@ api.add_resource(ShopList, '/api/list')
 api.add_resource(Shop, '/api/shop/<int:id>')
 
 if __name__ == '__main__':
-     from db import db
     db.init_app(app)
     app.run(debug=True)
 
