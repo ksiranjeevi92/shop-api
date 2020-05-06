@@ -1,7 +1,6 @@
 from flask import Flask,  jsonify
 from flask_restful import Api
 
-from db import db
 from resource.shop import ShopCreate
 from resource.shop import Shop
 from resource.shop import ShopList
@@ -13,17 +12,17 @@ app.config['PROPAGATE_EXCEPTIONS'] = True
 api = Api(app)
 
 
-# @app.before_first_request
-# def create_tables():
-    # db.create_all()
+@app.before_first_request
+def create_tables():
+    db.create_all()
 
 api.add_resource(ShopCreate, '/api/create')
 api.add_resource(ShopList, '/api/list')
 api.add_resource(Shop, '/api/shop/<int:id>')
 
 if __name__ == '__main__':
+     from db import db
     db.init_app(app)
-    db.create_all()
-    app.run()
+    app.run(port=5000, debug=True)
 
 
