@@ -1,4 +1,5 @@
 from flask_restful import Resource, reqparse
+from flask_cors import cross_origin
 
 from models.shop import ShopModel
 

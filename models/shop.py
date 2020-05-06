@@ -2,11 +2,11 @@ from db import db
 from sqlalchemy import inspect
 
 class ShopModel(db.Model):
-    __tablename__ = "shop"
+    __tablename__ = "shop_list"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80))
     shopname = db.Column(db.String(80))
-    status = db.Column(db.String(150))
+    status = db.Column(db.String(80))
 
     def __init__(self, name, shopname, status):
         self.name = name
