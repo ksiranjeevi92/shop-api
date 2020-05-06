@@ -23,6 +23,6 @@ api.add_resource(Shop, '/api/shop/<int:id>')
 if __name__ == '__main__':
      from db import db
     db.init_app(app)
-    app.run(portdebug=True)
+    app.run(debug=True)
 
 
