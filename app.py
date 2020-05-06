@@ -13,16 +13,17 @@ app.config['PROPAGATE_EXCEPTIONS'] = True
 api = Api(app)
 
 
-@app.before_first_request
-def create_tables():
-    db.create_all()
+# @app.before_first_request
+# def create_tables():
+    # db.create_all()
 
 api.add_resource(ShopCreate, '/api/create')
 api.add_resource(ShopList, '/api/list')
 api.add_resource(Shop, '/api/shop/<int:id>')
 
 if __name__ == '__main__':
+    db.create_all()
     db.init_app(app)
-    app.run(port=5000, debug=True)
+    app.run()
 
 
